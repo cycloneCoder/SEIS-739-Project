@@ -1,6 +1,10 @@
 package com.triviahub.triviahub.model;
 
+
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "users") // "user" is a reserved word in PostgreSQL, so use "users"
@@ -10,12 +14,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto-increment
     private Long id;
 
+    @NotBlank(message = "Username is required")
     @Column(nullable = false, unique = true)
     private String username;
 
+    @Email(message = "Email should be valid")
+    @NotBlank(message = "Email is required")
     @Column(nullable = false, unique = true)
     private String email;
 
+    @NotBlank(message = "Password is required")
+    @Size(min = 6, message = "Password must be at least 6 characters long")
     @Column(nullable = false)
     private String password;
 

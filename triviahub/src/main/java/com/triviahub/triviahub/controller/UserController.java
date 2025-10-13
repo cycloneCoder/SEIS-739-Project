@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import com.triviahub.triviahub.model.User;
 import com.triviahub.triviahub.repository.UserRepository;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +23,7 @@ public class UserController {
 
     // ✅ CREATE
     @PostMapping
-    public ResponseEntity<?> createUser(@RequestBody User user) {
+    public ResponseEntity<?> createUser(@Valid @RequestBody User user) {
         try {
             User newUser = userRepository.save(user);
             return ResponseEntity.status(HttpStatus.CREATED).body(newUser);

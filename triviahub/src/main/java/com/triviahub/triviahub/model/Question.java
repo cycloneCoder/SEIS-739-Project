@@ -1,6 +1,7 @@
 package com.triviahub.triviahub.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Question {
@@ -9,13 +10,23 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Question text is required")
+    @Column(nullable = false)
     private String questionText;
 
+    @NotBlank(message = "Option A is required")
+    @Column(nullable = false)
     private String optionA;
+
+    @NotBlank(message = "Option B is required")
+    @Column(nullable = false)
     private String optionB;
+
     private String optionC;
     private String optionD;
 
+    @NotBlank(message = "Correct answer is required")
+    @Column(nullable = false)
     private String correctAnswer; // store correct option (A, B, C, or D)
 
     @ManyToOne
@@ -58,4 +69,5 @@ public class Question {
     public User getCreatedBy() { return createdBy; }
     public void setCreatedBy(User createdBy) { this.createdBy = createdBy; }
 }
+
 
