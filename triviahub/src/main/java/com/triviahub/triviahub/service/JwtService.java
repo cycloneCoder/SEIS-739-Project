@@ -22,7 +22,7 @@ import java.util.function.Function;
 public class JwtService {
 
     // A secure key for signing the token. In a real app, this should be in application.properties.
-    private static final String SECRET_KEY = "a_very_long_and_secure_secret_key_for_trivia_hub_application_2025";
+    private static final String SECRET_KEY = "YV92ZXJ5X2xvbmdfYW5kX3NlY3VyZV9zZWNyZXRfa2V5X2Zvcg==";
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
