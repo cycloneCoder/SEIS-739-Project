@@ -1,5 +1,7 @@
 package com.triviahub.triviahub.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 /**
@@ -22,6 +24,7 @@ public class UserAnswer {
      */
     @ManyToOne
     @JoinColumn(name = "quiz_result_id", nullable = false)
+    @JsonIgnore //Added this to prevent looped JSON behavior seen in intial testing
     private QuizResult quizResult;
 
     /**

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Represents the result of a single attempt by a user to take a quiz.
  * It stores the user, the quiz taken, the final score, and when it was completed.
@@ -52,6 +54,7 @@ public class QuizResult {
      * This provides a detailed breakdown of the result.
      */
     @OneToMany(mappedBy = "quizResult", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore //Added this to remove duplicate from JSON returned using the results endpoint
     private List<UserAnswer> userAnswers;
 
 
