@@ -240,6 +240,27 @@ public class QuizController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    // ... inside QuizController class ...
+
+    /**
+     * Gets all quizzes created by the currently authenticated user.
+     */
+    @GetMapping("/my-quizzes")
+    public ResponseEntity<?> getMyQuizzes(Principal principal) {
+        // Find the user from the security principal
+        String username = principal.getName();
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found: " + username);
+        }
+
+        // Use the existing repository method to find their quizzes
+        List<Quiz> quizzes = quizRepository.findByCreatedBy_Id(user.getId());
+        
+        // Return the full quiz objects 
+        return ResponseEntity.ok(quizzes);
+    }
+
     /**
      * Deletes a quiz by its ID, but only if the requesting user is the creator.
      */
