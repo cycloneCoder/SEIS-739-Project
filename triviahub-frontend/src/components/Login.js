@@ -4,7 +4,7 @@ import { login } from '../services/apiService';
 // You'll need useNavigate to redirect after login
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Login({ onLoginSuccess }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -23,8 +23,10 @@ function Login() {
       // Store the token in local storage
       localStorage.setItem('token', token);
 
+      onLoginSuccess();
+
       // Redirect to the home page (or quiz list)
-      navigate('/');
+      navigate('/dashboard');
 
     } catch (err) {
       setError('Invalid username or password');

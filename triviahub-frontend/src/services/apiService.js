@@ -41,6 +41,18 @@ export const fetchQuizById = (quizId) => {
   return api.get(`/quizzes/${quizId}`);
 };
 
+// --- Dashboard Service Endpoints ---
+
+// This hits the GET /quizzes/my-quizzes endpoint
+export const fetchMyQuizzes = () => {
+  return api.get('/quizzes/my-quizzes');
+};
+
+// This hits the GET /results/me endpoint
+export const fetchMyResults = () => {
+  return api.get('/results/me');
+};
+
 // --- Add other endpoints here as you build... ---
 
 export default api;
