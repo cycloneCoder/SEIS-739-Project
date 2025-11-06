@@ -26,6 +26,7 @@ public class QuizResult {
      */
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
+    //@JsonIgnore
     private User user;
 
     /**
@@ -34,6 +35,7 @@ public class QuizResult {
      */
     @ManyToOne
     @JoinColumn(name = "quiz_id", nullable = false)
+    //@JsonIgnore
     private Quiz quiz;
 
     /**
