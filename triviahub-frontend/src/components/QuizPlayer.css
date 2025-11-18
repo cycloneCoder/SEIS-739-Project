@@ -1,0 +1,138 @@
+.quiz-player-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.quiz-player-container .card {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.quiz-header h3 {
+  margin: 0;
+}
+.quiz-header p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.question-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.options-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.option-item:hover {
+  border-color: #007bff;
+}
+
+.option-item.selected {
+  border-color: #007bff;
+  background-color: #e7f3ff;
+}
+
+.option-key {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.option-item.selected .option-key {
+  background-color: #0056b3;
+}
+
+.option-text {
+  font-size: 1.1rem;
+}
+
+.quiz-navigation {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.quiz-button {
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.quiz-button:hover {
+  background-color: #0056b3;
+}
+.quiz-button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.quiz-button.submit {
+  background-color: #28a745;
+}
+.quiz-button.submit:hover {
+  background-color: #218838;
+}
+
+.final-score {
+  text-align: center;
+  margin: 30px 0;
+}
+.final-score p {
+  font-size: 1.5rem;
+  margin: 0;
+}
+.final-score h3 {
+  font-size: 3.5rem;
+  color: #007bff;
+  margin: 10px 0;
+}
+
+.quiz-error {
+  color: red;
+  text-align: center;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 600px) {
+  .options-list {
+    grid-template-columns: 1fr;
+  }
+}

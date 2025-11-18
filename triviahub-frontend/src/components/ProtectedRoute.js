@@ -9,7 +9,7 @@ import Navbar from './Navbar';
 function ProtectedRoute({ isLoggedIn, onLogout, children }) {
   if (!isLoggedIn) {
     // If not logged in, redirect to the login page
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/" replace />;
   }
 
   // If logged in, render the Navbar, and then the page content

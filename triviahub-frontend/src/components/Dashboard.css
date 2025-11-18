@@ -83,3 +83,33 @@
 .edit-quiz-btn:hover {
   background-color: #5a6268;
 }
+
+.quiz-list-item .quiz-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.take-quiz-btn {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.take-quiz-btn:hover {
+  background-color: #0056b3;
+}
+
+.delete-quiz-btn {
+  padding: 5px 10px;
+  background-color: #dc3545; /* Red */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-quiz-btn:hover {
+  background-color: #c82333;
+}

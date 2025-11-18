@@ -53,6 +53,14 @@ public class Quiz {
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Question> questions;
 
+    /**
+     * The list of results associated with this quiz.
+     * `cascade = CascadeType.ALL` means if this quiz is deleted,
+     * all associated results will be deleted too.
+     */
+    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<QuizResult> quizResults;
+
     // --- Constructors ---
 
     public Quiz() {}

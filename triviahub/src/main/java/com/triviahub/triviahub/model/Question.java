@@ -72,6 +72,8 @@
 
 package com.triviahub.triviahub.model;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -116,6 +118,15 @@ public class Question {
     @JoinColumn(name = "quiz_id", nullable = false)
     @JsonIgnore
     private Quiz quiz;
+
+    /**
+     * The list of user answers associated with this question.
+     * `cascade = CascadeType.ALL` means if this question is deleted,
+     * all associated user answers will be deleted too.
+     */
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserAnswer> userAnswers;
+
 
     public Question() {}
 

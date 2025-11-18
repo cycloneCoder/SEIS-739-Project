@@ -12,6 +12,8 @@ import Login from './components/Login';
 import QuizList from './components/QuizList';
 import Dashboard from './components/Dashboard'; 
 import ProtectedRoute from './components/ProtectedRoute'; 
+import QuizEditor from './components/QuizEditor';
+import QuizPlayer from './components/QuizPlayer';
 
 function App() {
   // 3. Use state for login status. It will check localStorage on first load.
@@ -61,10 +63,36 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/quiz/create"
+          element={
+            <ProtectedRoute isLoggedIn={isLoggedIn} onLogout={handleLogout}>
+              <QuizEditor />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/quiz/edit/:id"
+          element={
+            <ProtectedRoute isLoggedIn={isLoggedIn} onLogout={handleLogout}>
+              <QuizEditor />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/quiz/:id"
+          element={
+            <ProtectedRoute isLoggedIn={isLoggedIn} onLogout={handleLogout}>
+              <QuizPlayer />
+            </ProtectedRoute>
+          }
+        />
+
+
       </Routes>
     </div>
   );
 }
 
-// You are correct to remove the AppWrapper
+
 export default App;
