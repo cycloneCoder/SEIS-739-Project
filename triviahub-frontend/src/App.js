@@ -1,11 +1,11 @@
-import React, { useState } from 'react'; // <-- 1. Import useState
+import React, { useState } from 'react'; 
 import {
   Routes,
   Route,
-  useNavigate, // <-- 2. Import useNavigate
+  useNavigate, 
 } from 'react-router-dom';
 
-// Import all your components
+
 import LandingPage from './components/LandingPage';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -14,6 +14,7 @@ import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute'; 
 import QuizEditor from './components/QuizEditor';
 import QuizPlayer from './components/QuizPlayer';
+import MyResults from './components/MyResults';
 
 function App() {
   // 3. Use state for login status. It will check localStorage on first load.
@@ -31,7 +32,7 @@ function App() {
     localStorage.removeItem('token');
     // 6. FIX handleLogout to use the state setter function
     setIsLoggedIn(false);
-    navigate('/'); // <-- 7. Navigate back to landing page on logout
+    navigate('/'); //Navigate back to landing page on logout
   };
 
   return (
@@ -87,8 +88,14 @@ function App() {
             </ProtectedRoute>
           }
         />
-
-
+        <Route
+          path="/my-results"
+          element={
+            <ProtectedRoute isLoggedIn={isLoggedIn} onLogout={handleLogout}>
+              <MyResults />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );

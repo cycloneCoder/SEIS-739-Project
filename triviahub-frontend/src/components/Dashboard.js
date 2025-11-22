@@ -70,10 +70,16 @@ function Dashboard() {
           <h3>{myQuizzes.length}</h3>
           <p>Quizzes Created</p>
         </div>
-        <div className="stat-card">
+        <Link to="/my-results" className="stat-card-link">
+          <div className="stat-card">
+            <h3>{myResults.length}</h3>
+            <p>Quizzes Taken</p>
+          </div>
+        </Link>
+        {/* <div className="stat-card">
           <h3>{myResults.length}</h3>
           <p>Quizzes Taken</p>
-        </div>
+        </div> */}
       </div>
 
       {/* My Quizzes Section */}

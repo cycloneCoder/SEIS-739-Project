@@ -1,0 +1,59 @@
+/* This is effectively identical to Login.css to maintain consistency */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
+
+.register-form {
+  background-color: #f0f0f0;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.register-form h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.register-form input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.register-button {
+  padding: 12px;
+  background-color: #28a745; /* Green for "Create" action */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+}
+
+.register-button:hover {
+  background-color: #218838;
+}
+
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  font-size: 0.9rem;
+  margin: 0;
+}

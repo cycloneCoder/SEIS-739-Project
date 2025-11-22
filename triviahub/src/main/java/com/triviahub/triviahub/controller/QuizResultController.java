@@ -103,7 +103,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/results") // Consider changing base path later if needed (e.g., /api/results)
+@RequestMapping("/results") 
 public class QuizResultController {
 
     private final QuizResultRepository quizResultRepository;
@@ -128,7 +128,6 @@ public class QuizResultController {
             String username = principal.getName();
             User user = userRepository.findByUsername(username);
             if (user == null) {
-                // Should not happen with valid JWT
                  throw new UsernameNotFoundException("User not found: " + username);
             }
 
@@ -164,12 +163,11 @@ public class QuizResultController {
             result.setQuiz(quiz);
             result.setScore(score);
             result.setCompletedAt(LocalDateTime.now());
-            // Save the result first to get its ID
             QuizResult savedResult = quizResultRepository.save(result);
 
             // --- 5. Associate and Save Detailed Answers ---
             for (UserAnswer userAnswer : userAnswers) {
-                userAnswer.setQuizResult(savedResult); // Link answer to the saved result
+                userAnswer.setQuizResult(savedResult); 
             }
             userAnswerRepository.saveAll(userAnswers);
             // Optionally set the answers back on the result if needed for the response (usually not necessary)

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { register } from '../services/apiService';
 import { useNavigate } from 'react-router-dom';
+import './Register.css';
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -37,42 +38,41 @@ function Register() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Register</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password (min 6 characters)"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        minLength="6"
-        required
-      />
-      <input
-        type="password"
-        placeholder="Confirm Password"
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-        minLength="6"
-        required
-      />
-       
-      <button type="submit">Create Account</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-    </form>
+ 
+  <div className="register-container">
+      <form className="register-form" onSubmit={handleSubmit}>
+        <h2>Create Account</h2>
+        
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        
+        <input
+          type="password"
+          placeholder="Password (min 6 characters)"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          minLength="6"
+          required
+        />
+        
+        <button type="submit" className="register-button">Sign Up</button>
+        
+        {error && <p className="error-message">{error}</p>}
+      </form>
+    </div>
   );
 }
 

@@ -35,7 +35,7 @@ public class QuizResult {
      */
     @ManyToOne
     @JoinColumn(name = "quiz_id", nullable = false)
-    @JsonIgnore
+    //@JsonIgnore
     private Quiz quiz;
 
     /**

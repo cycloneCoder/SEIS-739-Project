@@ -86,11 +86,11 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Entity
-@Table(name = "users") // "user" is a reserved word in PostgreSQL, so use "users"
-public class User implements UserDetails { // Implement the UserDetails interface
+@Table(name = "users") 
+public class User implements UserDetails { 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto-increment
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto-increment primary key (id)
     private Long id;
 
     @NotBlank(message = "Username is required")
@@ -116,7 +116,7 @@ public class User implements UserDetails { // Implement the UserDetails interfac
         this.password = password;
     }
 
-    // Getters & setters for your fields
+    // Getters & setters 
     public Long getId() {
         return id;
     }

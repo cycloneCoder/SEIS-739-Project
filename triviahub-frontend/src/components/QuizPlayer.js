@@ -65,6 +65,16 @@ function QuizPlayer() {
     }
   };
 
+  const getOptionText = (question, key) => {
+    switch (key) {
+      case 'A': return question.optionA;
+      case 'B': return question.optionB;
+      case 'C': return question.optionC;
+      case 'D': return question.optionD;
+      default: return '';
+    }
+  };
+
   if (loading && !isFinished) {
     return <div>Loading Quiz...</div>;
   }
@@ -74,20 +84,79 @@ function QuizPlayer() {
   }
 
   // --- Show Final Score Screen ---
+  // if (isFinished) {
+  //   return (
+  //     <div className="quiz-player-container">
+  //       <h2>Quiz Complete!</h2>
+  //       <div className="final-score">
+  //         <p>Your Score:</p>
+  //         <h3>{finalScore} / {questions.length}</h3>
+  //       </div>
+  //       <button className="quiz-button" onClick={() => navigate('/dashboard')}>
+  //         Back to Dashboard
+  //       </button>
+  //     </div>
+  //   );
+  // }
+
+  // --- Show Final Score & Review Screen ---
   if (isFinished) {
     return (
-      <div className="quiz-player-container card">
-        <h2>Quiz Complete!</h2>
-        <div className="final-score">
-          <p>Your Score:</p>
-          <h3>{finalScore} / {questions.length}</h3>
+      <div className="quiz-player-container"> {/* Removed 'card' class here to let children handle it */}
+        
+        {/* Score Card */}
+        <div className="card score-card">
+          <h2>Quiz Complete!</h2>
+          <div className="final-score">
+            <p>Your Score:</p>
+            <h3>{finalScore} / {questions.length}</h3>
+          </div>
+          <button className="quiz-button" onClick={() => navigate('/dashboard')}>
+            Back to Dashboard
+          </button>
         </div>
-        <button className="quiz-button" onClick={() => navigate('/dashboard')}>
-          Back to Dashboard
-        </button>
+
+        {/* Review Section */}
+        <div className="review-section">
+          <h3>Review Answers</h3>
+          <ul className="review-list">
+            {questions.map((q, index) => {
+              const userAnswer = selectedAnswers[q.id];
+              const isCorrect = userAnswer === q.correctAnswer;
+
+              return (
+                <li key={q.id} className={`card review-item ${isCorrect ? 'review-success' : 'review-failure'}`}>
+                  <h4>{index + 1}. {q.questionText}</h4>
+                  
+                  <div className="review-details">
+                    {/* User's Answer */}
+                    <p>
+                      <strong>Your Answer: </strong>
+                      <span className={isCorrect ? 'text-green' : 'text-red'}>
+                        {userAnswer}: {getOptionText(q, userAnswer)}
+                      </span>
+                    </p>
+                    
+                    {/* Correct Answer (only show if user was wrong) */}
+                    {!isCorrect && (
+                      <p>
+                        <strong>Correct Answer: </strong>
+                        <span className="text-green">
+                          {q.correctAnswer}: {getOptionText(q, q.correctAnswer)}
+                        </span>
+                      </p>
+                    )}
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
       </div>
     );
   }
+
 
   // --- Show Quiz Question Screen ---
   const currentQuestion = questions[currentQuestionIndex];

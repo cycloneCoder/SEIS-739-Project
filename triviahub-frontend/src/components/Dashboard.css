@@ -10,13 +10,29 @@
   margin-bottom: 30px;
 }
 
+.stat-card-link {
+  text-decoration: none;
+  color: inherit;
+  flex-grow: 1; 
+}
+
 .stat-card {
   padding: 20px;
   background-color: #f0f0f0;
   border-radius: 8px;
   text-align: center;
   flex-grow: 1;
+  transition: box-shadow 0.2s, transform 0.2s;
 }
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: #007bff;
+  color: #f0f0f0; 
+}
+
+
 
 .stat-card h3 {
   margin: 0 0 10px 0;
@@ -26,7 +42,7 @@
 .stat-card p {
   margin: 0;
   font-size: 1rem;
-  color: #555;
+  color: black;
 }
 
 .my-quizzes-header {

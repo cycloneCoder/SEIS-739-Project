@@ -1,8 +1,8 @@
-// src/components/Login.js
+
 import React, { useState } from 'react';
 import { login } from '../services/apiService';
-// You'll need useNavigate to redirect after login
 import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
 function Login({ onLoginSuccess }) {
   const [username, setUsername] = useState('');
@@ -35,25 +35,51 @@ function Login({ onLoginSuccess }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit">Login</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-    </form>
+  //   <form onSubmit={handleSubmit}>
+  //     <h2>Login</h2>
+  //     <input
+  //       type="text"
+  //       placeholder="Username"
+  //       value={username}
+  //       onChange={(e) => setUsername(e.target.value)}
+  //       required
+  //     />
+  //     <input
+  //       type="password"
+  //       placeholder="Password"
+  //       value={password}
+  //       onChange={(e) => setPassword(e.target.value)}
+  //       required
+  //     />
+  //     <button type="submit">Login</button>
+  //     {error && <p style={{ color: 'red' }}>{error}</p>}
+  //   </form>
+  // );
+  <div className="login-container">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2>Login</h2>
+        
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        
+        <button type="submit" className="login-button">Login</button>
+        
+        {error && <p className="error-message">{error}</p>}
+      </form>
+    </div>
   );
 }
 
