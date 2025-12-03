@@ -3,7 +3,6 @@ package com.triviahub.triviahub.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -61,8 +60,6 @@ public class Quiz {
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<QuizResult> quizResults;
 
-    // --- Constructors ---
-
     public Quiz() {}
 
     public Quiz(String title, String description, User createdBy) {
@@ -71,7 +68,7 @@ public class Quiz {
         this.createdBy = createdBy;
     }
 
-    // --- Getters and Setters ---
+    //Getters and Setters
 
     public Long getId() {
         return id;

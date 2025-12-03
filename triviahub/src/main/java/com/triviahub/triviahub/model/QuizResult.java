@@ -3,7 +3,6 @@ package com.triviahub.triviahub.model;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -59,9 +58,6 @@ public class QuizResult {
     @JsonIgnore //Added this to remove duplicate from JSON returned using the results endpoint
     private List<UserAnswer> userAnswers;
 
-
-    // --- Constructors ---
-
     public QuizResult() {}
 
     public QuizResult(User user, Quiz quiz, int score) {
@@ -71,7 +67,7 @@ public class QuizResult {
         this.completedAt = LocalDateTime.now(); // Set completion time on creation
     }
 
-    // --- Getters and Setters ---
+    //Getters and Setters
 
     public Long getId() {
         return id;

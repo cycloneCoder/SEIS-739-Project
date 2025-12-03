@@ -1,7 +1,6 @@
 package com.triviahub.triviahub.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
 
 /**
@@ -41,7 +40,7 @@ public class UserAnswer {
     @Column(nullable = false)
     private String selectedAnswer;
 
-    // --- Constructors ---
+    //Constructors
 
     public UserAnswer() {}
 
@@ -51,7 +50,7 @@ public class UserAnswer {
         this.selectedAnswer = selectedAnswer;
     }
 
-    // --- Getters and Setters ---
+    //Getters and Setters
 
     public Long getId() {
         return id;

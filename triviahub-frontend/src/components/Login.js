@@ -21,7 +21,11 @@ function Login({ onLoginSuccess }) {
       const { token } = response.data;
 
       // Store the token in local storage
-      localStorage.setItem('token', token);
+      //localStorage.setItem('token', token);
+
+      //Update to use session storage instead
+      sessionStorage.setItem('token',token);
+
 
       onLoginSuccess();
 

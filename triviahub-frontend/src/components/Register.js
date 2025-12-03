@@ -15,9 +15,9 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    if(password != confirmPassword) {
-        setError('Passwords do not match');
-        return;
+    if (password != confirmPassword) {
+      setError('Passwords do not match');
+      return;
     }
     try {
       // Use the register function from your apiService
@@ -38,11 +38,11 @@ function Register() {
   };
 
   return (
- 
-  <div className="register-container">
+
+    <div className="register-container">
       <form className="register-form" onSubmit={handleSubmit}>
         <h2>Create Account</h2>
-        
+
         <input
           type="text"
           placeholder="Username"
@@ -50,7 +50,7 @@ function Register() {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-        
+
         <input
           type="email"
           placeholder="Email"
@@ -58,7 +58,7 @@ function Register() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        
+
         <input
           type="password"
           placeholder="Password (min 6 characters)"
@@ -67,9 +67,17 @@ function Register() {
           minLength="6"
           required
         />
-        
+
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
+
         <button type="submit" className="register-button">Sign Up</button>
-        
+
         {error && <p className="error-message">{error}</p>}
       </form>
     </div>

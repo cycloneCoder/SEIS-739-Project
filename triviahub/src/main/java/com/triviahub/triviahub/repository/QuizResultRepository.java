@@ -3,7 +3,6 @@ package com.triviahub.triviahub.repository;
 import com.triviahub.triviahub.model.QuizResult;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 /**

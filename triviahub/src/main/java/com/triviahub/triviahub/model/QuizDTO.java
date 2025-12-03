@@ -62,7 +62,7 @@ public class QuizDTO {
 
     private String description;
 
-    // --- Getters and Setters ---
+    //Getters and Setters
     public String getTitle() {
         return title;
     }

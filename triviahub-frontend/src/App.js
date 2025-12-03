@@ -18,7 +18,10 @@ import MyResults from './components/MyResults';
 
 function App() {
   // 3. Use state for login status. It will check localStorage on first load.
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+  //const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+
+  //Changing to session storage
+  const [isLoggedIn, setIsLoggedIn] = useState(!!sessionStorage.getItem('token')); // <--- Use sessionStorage
   
   // 4. Get the navigate hook to use in handleLogout
   const navigate = useNavigate(); 
