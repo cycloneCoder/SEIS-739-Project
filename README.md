@@ -10,6 +10,20 @@ TriviaHub is a full-stack trivia application that allows users to create, manage
 - **Authentication:** Spring Security with JWT (JSON Web Tokens)
 - **API Documentation:** OpenAPI/Swagger UI
 
+## 📂 Project Structure
+```
+SEIS-739-Project/
+├── triviahub/                 # Backend Code
+│   ├── src/main/java/         # Java Source (Controllers, Models, Services)
+│   ├── src/main/resources/    # Config (application.properties)
+│   └── build.gradle           # Dependencies
+│
+└── triviahub-frontend/        # Frontend Code
+    ├── src/components/        # React Components (Login, Dashboard, QuizPlayer)
+    ├── src/services/          # API Service (Axios configuration)
+    └── package.json           # Frontend Dependencies
+```    
+
 ## 📋 Prerequisites
 Before running the application, ensure you have the following installed:
 - Java Development Kit (JDK) 21
